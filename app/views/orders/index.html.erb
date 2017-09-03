@@ -5,30 +5,26 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:delivery_time) %></th>
       <th><%= model_class.human_attribute_name(:details) %></th>
       <th><%= model_class.human_attribute_name(:attachment) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @orders.each do |order| %>
+    <% @orders.each.reverse_each do |order| %>
       <tr>
-        <td><%= link_to order.id, order_path(order) %></td>
-        <td><%= order.title %></td>
+        <td><%= link_to order.title, order_path(order) %></td>
         <td><%= order.location %></td>
         <td><%= order.delivery_time %></td>
         <td><%= order.details %></td>
         <td><%= order.attachment %></td>
         <td><%= order.status %></td>
-        <td><%= order.user_id %></td>
-        <td><%=l order.created_at %></td>
+        <td><%= time_ago_in_words(order.created_at) %> ago</td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       order_path(order), :class => 'btn btn-default btn-xs' %>
@@ -48,3 +44,4 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_order_path,
             :class => 'btn btn-primary' %>
+<br><br>

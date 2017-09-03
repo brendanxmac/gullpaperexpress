@@ -1,9 +1,9 @@
 class User < ApplicationRecord
+  has_many :orders
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :orders
   VALID_NAME_REGEX = /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/
   validates :first_name, presence: true, format: { with: VALID_NAME_REGEX}
   validates :last_name, presence: true, format: { with: VALID_NAME_REGEX}
