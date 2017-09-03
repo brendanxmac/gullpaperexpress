@@ -1,2 +1,46 @@
-<h1>Welcome to the Gull Paper Delivery Community</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% if current_user %>
+<h3>Welcome: <%= current_user.email %></h3>
+<% else %>
+<div class="jumbotron">
+  <h1>Welcome to the Gull Paper Delivery App!</h1>
+  <h3 class="lead">
+    You'll love never going to the library or worrying about a paper again. Sign up now!
+  </h3>
+</div>
+
+<div class="row">
+  <div class="plans clearfix">
+    <div class="col-lg-4 col-lg-offset-3 plan">
+      <h2>Per-Order Plan*</h2>
+        <div class="features">
+          <ul>
+            <li>Quick Delivery any day of the week</li>
+            <li>Upgrade at any time</li>
+            <li><b>Price: Cost of Paper + Delivery Fee</b></li>
+          </ul>
+        </div>
+        <p>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success sign-up' %>
+        </p>
+      </div>
+      <div class="col-lg-4 plan">
+        <h2>Semester Plan*</h2>
+        <div class="features">
+          <ul>
+            <li>Quick Delivery any day of the week</li>
+            <li>Unlimited Free Deliveries (Tip only if you want)</li>
+            <li><b>Price: $40 / Semester</b></li>
+          </ul>
+        </div>
+
+        <p>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info sign-up' %>
+        </p>
+
+</div>
+
+</div>
+
+</div>
+
+<% end %>

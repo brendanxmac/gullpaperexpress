@@ -38,24 +38,26 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Gullpaperdelivery</a>
+        <%= link_to 'Gull Paper Delivery', root_path, class:"navbar-brand", id: "logo" %>
+        <% if current_user %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Orders", "/path1", id: "nav-link"%></li>
+            <li><%= link_to "My Profile", edit_user_registration_path(current_user), id: "nav-link"%></li>
+            <li><%= link_to "My Orders", "/path3", id: "nav-link"%></li>
           </ul>
+        <% end %>
           <ul class="nav navbar-right col-md-4">
             <% if current_user %>
             <li class="col-md-6 user-name">
-            <%= link_to (truncate(current_user.email, length: 30)).html_safe,
+            <%= link_to (truncate(current_user.email, length: 28)).html_safe,
               edit_user_registration_path, class: 'btn btn-xs btn-info', title: 'Edit Profile' %>
             </li>
             <li class="col-md-1"> </li>
@@ -73,14 +75,14 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2017</p>
+        <p>&copy; Gull Paper Delivery Company 2017</p>
       </footer>
 
     </div> <!-- /container -->
