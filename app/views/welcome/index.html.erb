@@ -1,46 +1,68 @@
 <% if current_user %>
 <h3>Welcome: <%= current_user.email %></h3>
 <% else %>
-<div class="jumbotron">
+<div class="jumbotron col-lg-12">
   <h1>Welcome to the Gull Paper Delivery App!</h1>
   <h3 class="lead">
     You'll love never going to the library or worrying about a paper again. Sign up now!
   </h3>
 </div>
 
-<div class="row">
+<div align="center" class="row">
   <div class="plans clearfix">
-    <div class="col-lg-4 col-lg-offset-3 plan">
-      <h2>Per-Order Plan*</h2>
+    <div class="col-lg-4  plan", id="signup-border-green">
+      <h1><u>Per-Order Plan</u></h1><br>
         <div class="features">
           <ul>
-            <li>Quick Delivery any day of the week</li>
-            <li>Upgrade at any time</li>
-            <li><b>Price: Cost of Paper + Delivery Fee</b></li>
+            <li align="left"><h5>Quick Delivery Any Day of the Week.</h5></li>
+            <li align="left"><h5>Pay Up Front Each Delivery (Think, Pizza).</h5></li>
+            <li align="left"><h5>Type Your Papers, We'll Print, Staple, and Deliver.</h5></li>
+            <li align="left"><h5>Cash or Venmo Accepted by Deliverer.</h5></li>
+            <li align="left"><h5>*Papers over 10 pages are +1 dollar*</h5></li>
+            <br>
+            <h3>Price: $2 / paper</h3>
           </ul>
         </div>
+        <br>
         <p>
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success sign-up' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success btn-lg sign-up', id: "btn-sign-up" %>
         </p>
       </div>
-      <div class="col-lg-4 plan">
-        <h2>Semester Plan*</h2>
+      <div class="col-lg-4 plan", id="signup-border-orange">
+        <h1><u>Semester Plan</u></h1><br>
         <div class="features">
           <ul>
-            <li>Quick Delivery any day of the week</li>
-            <li>Unlimited Free Deliveries (Tip only if you want)</li>
-            <li><b>Price: $40 / Semester</b></li>
+            <li align="left"><h5>Quick Delivery Any Day of the Week</h5></li>
+            <li align="left"><h5>Unlimited Free Deliveries (Tip Only if you Want)</h5></li>
+            <li align="left"><h5>Type Your Papers, We'll Print, Staple, and Deliver</h5></li>
+            <li align="left"><h5>Pay Up Front Once (Think, Guge Long Lasting Pizza)</h5></li>
+            <li align="left"><h5>Cash or Venmo Accepted by Deliverer</h5></li>
+            <br>
+            <h3>Price: $20 / semester</h3>
           </ul>
         </div>
-
+        <br>
         <p>
-          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info sign-up' %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-warning btn-lg sign-up', id: "btn-sign-up" %>
         </p>
-
+      </div>
+      <div class="col-lg-4 plan", id="signup-border-blue">
+        <h1><u>Faculty Custom Plan</u></h1><br>
+        <div class="features">
+          <ul>
+            <li align="left"><h5>Unlimited Free Deliveries and Classroom Set-Ups</h5></li>
+            <li align="left"><h5>Never Spend Time on Printing, Stapling, or Setting up Your Lecture</h5></li>
+            <li align="left"><h5>Worry About the Big Stuff, We Got the Details</h5></li>
+            <li align="left"><h5>Email gullpaperdelivery@gmail.com to Set Up a Custom Plan</h5></li>
+            <br>
+            <h3>Price: Negotiable</h3>
+          </ul>
+        </div>
+        <br>
+        <p>
+          <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-info btn-lg sign-up', id: "btn-sign-up" %>
+        </p>
+      </div>
+    </div>
 </div>
-
-</div>
-
-</div>
-
 <% end %>

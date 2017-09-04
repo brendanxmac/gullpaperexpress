@@ -74,27 +74,20 @@ a:hover, a:focus {
 
 .jumbotron {
   text-align: center;
-  background-image: asset-url('campus.jpg');
+  background-image: asset-url('EC.JPG');
   background-size: cover;
-  color: #fff;
+  color: #FFF;
   font-family: 'Helvetica Neue' !important;
   font-stretch: expanded;
   padding-top: 25px;
   padding-bottom: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
   text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
-/*
 
-h2 {
-font-size: 35px !important;
-.lead {
-font-family: 'Helvetica Neue' !important;
-font-size: 30px !important;
-}
+  .lead {
+    font-family: 'Helvetica Neue';
+    font-size: 28px !important;
 
-} */
-
+  }
 }
 
 .no-left-padding {
@@ -128,4 +121,24 @@ font-size: 30px !important;
 
 .left-padding {
   padding-left: 15px !important;
+}
+
+#btn-sign-up {
+  width: 250px;
+}
+
+#signup-border-green{
+  border-radius: 25px;
+  border: 2px dotted #58b957;
+}
+
+// #signup-border-orange{
+//   border-radius: 25px;
+//   border: 1px solid #f2ae43;
+//
+// }
+
+#signup-border-blue{
+  border-radius: 25px;
+  border: 2px dotted #56c0e0;
 }
