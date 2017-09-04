@@ -9,4 +9,5 @@ class User::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number,
     :customer_type, :terms_and_conditions])
   end
+
 end

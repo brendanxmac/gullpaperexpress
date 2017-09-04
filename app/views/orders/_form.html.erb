@@ -1,4 +1,4 @@
-<%= form_for @order, :html => { multipart: true, :class => "form-horizontal order" } do |f| %>
+<%= bootstrap_form_for @order, :html => { multipart: true, :class => "form-horizontal order" } do |f| %>
 
   <% if @order.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -16,50 +16,39 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:title) %>
   </div>
   <div class="form-group">
-    <%= f.label :location, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :location, :class => 'form-control' %>
+      <%= f.select :location, ['', 'Alhambra', 'Bayview', 'Beacon', 'Birchmont',
+         'Bookstore', 'Brindle', 'Brooks', 'Callahan (upper)', 'Callahan (lower)',
+         'Einstein Bros. Bagels', 'Endicott', 'Essex', 'Farm House', 'Frates' 'Gloucester',
+         'Hale', 'Hamilton', 'Hawthorne', 'Kennedy', 'Library', 'LSB (put room # in detials)', 'Manchester',
+         'Marblehead', 'Post Center', 'Standish', 'Reynolds', 'Rockport', 'Rogers',
+         'Stoneridge', 'Lodge', 'Tower', 'Trexler', 'VPAC (put room # in details)' 'Wenham', 'Williston',
+         'Winthrop', 'Woodside'], :class => 'form-control'%>
     </div>
-    <%=f.error_span(:location) %>
   </div>
   <div class="form-group">
-    <%= f.label :delivery_time, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :delivery_time, :class => 'form-control' %>
+      <%= f.select :delivery_time, ['', 'Express (ASAP)', '8:00-9:00 AM', '2:00-3:00 PM', '11:00 PM-12:00 AM'], :class => 'form-control'%>
     </div>
-    <%=f.error_span(:delivery_time) %>
   </div>
   <div class="form-group">
-    <%= f.label :details, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :details, :class => 'form-control' %>
+      <%= f.text_area :details, label: { text: "Details ( Room #, special requests, *front door is open*, etc...)" }, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:details) %>
   </div>
   <div class="form-group">
-    <%= f.label :attachment, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.file_field :attachment, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:attachment) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :status, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :status, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:status) %>
   </div>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit nil, :class => 'btn btn-success' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 orders_path, :class => 'btn btn-default' %>
     </div>

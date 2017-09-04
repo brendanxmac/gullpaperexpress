@@ -16,6 +16,7 @@ gem 'sendgrid-ruby'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'bootstrap_form'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

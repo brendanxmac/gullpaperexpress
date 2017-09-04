@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
@@ -27,6 +28,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user = current_user
+    @order.status = "Pending"
 
     respond_to do |format|
       if @order.save
@@ -72,5 +74,12 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:title, :location, :delivery_time, :details, :attachment, :status, :user_id)
+    end
+
+    def require_same_user
+      if current_user != @order.user
+        flash[:danger] = "You can only edit or delete you own orders"
+        redirect_to orders_path
+      end
     end
 end
