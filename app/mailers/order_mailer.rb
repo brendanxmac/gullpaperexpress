@@ -11,8 +11,8 @@ class OrderMailer < ApplicationMailer
     @user = user
     attachment_rout = attachment.to_s
     @url = 'https://gullpaperdelivery.herokuapp.com'
-    attachments['order-attachment'] = { content: Base64.encode64(File.read("#{Rails.root}/public"+attachment_rout)), mime_type: "image/jpg", encoding: "base64"  }
     mail(to: @user.email, subject: 'New order submitted')
+    attachments['order-attachment'] = File.read("#{Rails.root}/public"+attachment_rout)
   end
 
 end
