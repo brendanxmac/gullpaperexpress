@@ -43,9 +43,11 @@
   </div>
   <div class="form-group">
     <div class="col-lg-10">
-      <%= f.file_field :attachment, :class => 'form-control' %>
+      <%= f.file_field :attachment, label: {text:"Attachment (PDF only)"}, :class => 'form-control' %>
     </div>
   </div>
+  <p><a href="https://www.youtube.com/watch?v=tIS8Wop_7H4">Microsoft Word: Save as PDF</a></p>
+  <p><a href="https://youtu.be/0kADxcMcjAY?t=45s">Pages for Mac: Save as PDF</a></p>
   <div class="form-group">
     <div class="col-lg col-lg-10">
       <%= f.submit nil, :class => 'btn btn-success' %>
