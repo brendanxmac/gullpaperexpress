@@ -1,11 +1,24 @@
+<div class="jumbotron col-lg-12" id="index-jumbo">
+  <h1>Gull Paper Delivery</h1>
+  <h3 class="lead">
+    You'll love never going to the library or worrying about a paper again
+  </h3>
+</div>
 <%- model_class = Order -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<%= link_to "New Order",
+            new_order_path,
+            :class => 'btn btn-success btn-lg' %><br><br>
+<div align="center">
+  <%= will_paginate %>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
+      <th>User</th>
       <th><%= model_class.human_attribute_name(:delivery_time) %></th>
       <th><%= model_class.human_attribute_name(:attachment) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
@@ -15,8 +28,11 @@
   </thead>
   <tbody>
     <% @orders.each.reverse_each do |order| %>
+    <% userID = order.user_id %>
+    <% user = User.find(userID) %>
       <tr>
         <td><%= link_to order.title, order_path(order) %></td>
+        <td><%= user.first_name%> <%= user.last_name.chars.first%></td>
         <td><%= order.delivery_time %></td>
         <td>Recieved</td>
         <td><%= order.status %></td>
@@ -43,7 +59,7 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_order_path,
-            :class => 'btn btn-primary' %>
+<div align="center">
+  <%= will_paginate %>
+</div>
 <br><br>
