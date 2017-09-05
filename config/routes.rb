@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :orders
+  resources :orders do
+    member do
+      get :delivered
+    end
+  end
   devise_for :users, :controllers => {:registrations => "user/registrations"}
   root 'welcome#index'
 

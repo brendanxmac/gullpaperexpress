@@ -50,12 +50,12 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "About", about_path, id: "nav-link"%></li>
             <li><%= link_to "Contact Us", contact_path, id: "nav-link"%></li>
-            <% if current_user %>
+            <% if current_user%>
             <li><%= link_to "Orders", orders_path, id: "nav-link"%></li>
             <% end %>
           </ul>
           <ul class="nav navbar-right col-md-4">
-            <% if current_user %>
+            <% if current_user%>
             <li class="col-md-6 user-name">
             <%= link_to (truncate(current_user.email, length: 28)).html_safe,
               edit_user_registration_path, class: 'btn btn-xs btn-primary', title: 'Edit Profile' %>

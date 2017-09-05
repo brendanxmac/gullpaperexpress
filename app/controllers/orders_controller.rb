@@ -43,6 +43,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def delivered
+    order = Order.find(params[:id])
+    order.status = "Delivered"
+    order.save
+    redirect_to orders_url, notice: 'Order was successfully delivered.'
+  end
+
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
@@ -79,7 +86,7 @@ class OrdersController < ApplicationController
     end
 
     def require_same_user
-      if current_user != @order.user
+      if current_user != @order.user and !current_user.admin?
         flash[:danger] = "You can only edit or delete you own orders"
         redirect_to orders_path
       end
