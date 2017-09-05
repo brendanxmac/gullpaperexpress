@@ -9,10 +9,9 @@ class OrderMailer < ApplicationMailer
 
   def order_admin_email(user, attachment)
     @user = user
-    attachment_rout = attachment.to_s
     @url = 'https://gullpaperdelivery.herokuapp.com'
+    attachments['order-attachment'] = { content: File.read("#{Rails.root}/public"+attachment.to_s), mime_type: "image/pdf"}
     mail(to: @user.email, subject: 'New order submitted')
-    attachments['order-attachment'] = File.read("#{Rails.root}/public"+attachment_rout)
   end
 
 end
