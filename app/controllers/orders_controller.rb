@@ -32,6 +32,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        OrderMailer.order_email(@order.user).deliver_now
+        OrderMailer.order_admin_email(@order.user, @order.attachment).deliver_now
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
