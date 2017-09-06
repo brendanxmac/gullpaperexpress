@@ -35,7 +35,11 @@
         <td><%= user.first_name%> <%= user.last_name.chars.first%></td>
         <td><%= order.delivery_time %></td>
         <td>Recieved</td>
-        <td><%= order.status %></td>
+        <% if order.status == "Pending" %>
+          <td class="pending"><%= order.status %></td>
+        <% else %>
+          <td class="delivered"><%= order.status %></td>
+        <% end %>
         <td><%= time_ago_in_words(order.created_at) %> ago</td>
         <td>
         <% if current_user == order.user || current_user.admin? %>
