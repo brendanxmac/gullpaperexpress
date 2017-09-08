@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Gull Paper Delivery" %></title>
+    <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'>
+    <title><%= content_for?(:title) ? yield(:title) : "Gull Paper Delivery Co." %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -45,14 +46,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to 'Gull Paper Delivery', root_path, class:"navbar-brand", id: "logo" %>
+        <%= image_tag "gull.png", height: 35, width: 35, class: "navbar-left" %>
+        <%= link_to 'Gull Paper Delivery Co.', root_path, class:"navbar-brand", id: "logo" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "About", about_path, id: "nav-link"%></li>
-            <li><%= link_to "Contact Us", contact_path, id: "nav-link"%></li>
             <% if current_user%>
-            <li><%= link_to "Orders", orders_path, id: "nav-link-orders"%></li>
+            <li><%= link_to "Orders", orders_path, id: "nav-link"%></li>
             <% end %>
+            <li><%= link_to "About", about_path, id: "nav-link active"%></li>
+            <li><%= link_to "Contact Us", contact_path, id: "nav-link active"%></li>
           </ul>
           <ul class="nav navbar-right col-md-4">
             <% if current_user%>

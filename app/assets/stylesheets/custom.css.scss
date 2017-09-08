@@ -3,6 +3,10 @@
   padding-top: 10px !important;
   text-align: right;
 
+.navbar{
+
+}
+
 a {
   color: black !important;
   margin: 0 !important;
@@ -74,10 +78,10 @@ a:hover, a:focus {
 
 .jumbotron {
   text-align: center;
-  background-image: asset-url('EC.JPG');
+  background-image: asset-url('vpac.JPG');
   background-size: cover;
   color: #FFF;
-  font-family: 'Helvetica Neue' !important;
+  font-family: 'Exo' !important;
   font-stretch: expanded;
   padding-top: 25px;
   padding-bottom: 25px;
@@ -94,6 +98,20 @@ a:hover, a:focus {
   background-image: asset-url('campus.jpg');
 }
 
+#about-jumbo {
+  background-image: asset-url('lsb.jpg');
+}
+
+#contact-jumbo {
+  background-image: asset-url('EC.JPG');
+}
+
+#terms-jumbo {
+  background-image: asset-url('cally.jpg');
+}
+
+
+
 .no-left-padding {
   padding-left: 0 !important;
 }
@@ -105,26 +123,20 @@ a:hover, a:focus {
 
 #logo {
   color: #FFF;
+  font-family: "Exo" !important;
 }
 
 #logo:hover {
-  color: #5FDC6E;
+  color: #66d6a8;
 }
 
 #nav-link {
   color: #FFF;
+  font-family: "Exo" !important;
 }
 
 #nav-link:hover {
-  color: #5FDC6E;
-}
-
-#nav-link-orders {
-  color: #5FDC6E;
-}
-
-#nav-link-orders:hover {
-  color: #FFF;
+  color: #66d6a8;
 }
 
 .no-padding {
@@ -137,22 +149,18 @@ a:hover, a:focus {
 
 #btn-sign-up {
   width: 250px;
+  font-family: "Exo" !important;
 }
 
 #signup-border-green{
   border-radius: 25px;
-  border: 2px dotted #58b957;
+  border: 2px solid #58b957;
 }
 
-// #signup-border-orange{
-//   border-radius: 25px;
-//   border: 1px solid #f2ae43;
-//
-// }
 
 #signup-border-blue{
   border-radius: 25px;
-  border: 2px dotted #56c0e0;
+  border: 2px solid #56c0e0;
 }
 
 #home-order-btn {
@@ -162,6 +170,11 @@ a:hover, a:focus {
 #about-border{
   border-radius: 35px;
   border: 2px solid #3e8acc;
+}
+
+#terms-border {
+  border-radius: 35px;
+  border: 2px solid #ff8533;
 }
 
 #contact-border {
@@ -175,4 +188,16 @@ a:hover, a:focus {
 
 .delivered {
   color: #04C941;
+}
+
+.navbar-left {
+  margin: 10px;
+}
+
+* {
+  font-family: "Exo" !important;
+}
+
+.user-name {
+  font-family: "Arial" !important;
 }
