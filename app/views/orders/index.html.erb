@@ -35,9 +35,11 @@
         <td><%= order.delivery_time %></td>
         <td>Recieved</td>
         <% if order.status == "Pending" %>
-          <td class="pending"><%= order.status %></td>
+          <td class="pending"><b><%= order.status %></b></td>
+        <% elsif order.status == "Out for Delivery" %>
+          <td class="out"><b><%= order.status %></b></td>
         <% else %>
-          <td class="delivered"><%= order.status %></td>
+          <td class="delivered"><b><%= order.status %></b></td>
         <% end %>
         <td><%= time_ago_in_words(order.created_at) %> ago</td>
         <td>
@@ -53,8 +55,11 @@
                       :class => 'btn btn-xs btn-danger' %>
         <% end %>
         <% if current_user.admin? %>
-            <%= link_to 'Delivered', delivered_order_path(order), class: 'btn btn-success btn-xs sign-up' %>
-            <% order.status = "Delivered"%>
+          <%= link_to 'Out for Delivery', out_for_delivery_order_path(order), class: 'btn btn-primary btn-xs sign-up',
+          data: {confirm: 'Are you sure this is out for delivery?'} %>
+          <%= link_to 'Delivered', delivered_order_path(order), class: 'btn btn-success btn-xs sign-up',
+          data: {confirm: 'Are you sure this is delivered?'} %>
+          <!-- <% order.status = "Delivered"%> -->
         <% end %>
         </td>
       </tr>

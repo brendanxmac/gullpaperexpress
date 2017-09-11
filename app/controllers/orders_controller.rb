@@ -43,6 +43,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def out_for_delivery
+    order = Order.find(params[:id])
+    order.status = "Out for Delivery"
+    order.save
+    redirect_to orders_url, notice: 'Order is out for delivery.'
+  end
+
   def delivered
     order = Order.find(params[:id])
     order.status = "Delivered"

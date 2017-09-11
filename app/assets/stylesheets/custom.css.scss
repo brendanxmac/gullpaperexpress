@@ -183,11 +183,15 @@ a:hover, a:focus {
 }
 
 .pending{
-  color: #3E7AF3;
+  color: #000;
+}
+
+.out {
+  color: #F05B0C;
 }
 
 .delivered {
-  color: #04C941;
+  color: #229e6e;
 }
 
 .navbar-left {

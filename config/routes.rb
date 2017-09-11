@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :orders do
     member do
+      get :out_for_delivery
       get :delivered
     end
   end
