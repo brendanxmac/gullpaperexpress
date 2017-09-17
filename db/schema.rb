@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170906020545) do
     t.string   "customer_type"
     t.boolean  "terms_and_conditions"
     t.boolean  "admin",                  default: false
-    t.string   "plan_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

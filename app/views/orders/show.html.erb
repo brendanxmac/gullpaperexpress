@@ -34,7 +34,7 @@
                 :class => 'btn btn-danger' %>
 <% end %>
 <% if current_user.admin? %>
-  <%= link_to 'Out for Delivery', out_for_delivery_order_path(order), class: 'btn btn-primary btn-xs sign-up' %>
+  <%= link_to 'Out for Delivery', out_for_delivery_order_path(@order), class: 'btn btn-primary btn-md sign-up' %>
   <%= link_to 'Delivered', delivered_order_path(@order), class: 'btn btn-success btn-md sign-up' %>
 <% end %>
 <br><br>

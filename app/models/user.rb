@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :terms_and_conditions, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false}, format: {with:
    /\b[A-Z0-9._%a-z\-]+@mail\.endicott\.edu|@endicott\.edu\z/, message: "must be an Endicott email"}
-  validates :plan_type, presence: true
 
 
   def full_name
