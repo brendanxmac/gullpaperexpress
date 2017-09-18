@@ -1,3 +1,4 @@
+require 'pdf-reader'
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -29,6 +30,25 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.status = "Pending"
+    if @order.delivery_time == "Express"
+      @order.price = 4.00
+    elsif @order.delivery_time == "Overnight (before 7AM)"
+      @order.price = 3.00
+    elsif @order.delivery_time == "7:00-8:00PM"
+      @order.price = 2.00
+    else
+      @order.price = 2.50
+    end
+
+    attachment = @order.attachment
+    PDF::Reader.open("#{Rails.root}/public"+attachment.to_s) do |reader|
+      # puts reader.page_count
+      pages = reader.page_count.to_int
+      @order.page_count = pages
+      page_price = pages * (0.05)
+      @order.price += page_price
+      # puts @order.price
+    end
 
     respond_to do |format|
       if @order.save

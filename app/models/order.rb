@@ -6,8 +6,7 @@ class Order < ApplicationRecord
   validates :location, presence: true
   validates :delivery_time, presence: true
   validates :attachment, presence: true
-  validates :details, length: { maximum: 250}
-  # validates :user_id, presence: true
-
+  validates :details, length: { maximum: 100}
+  validates :page_count, presence: true
 
 end

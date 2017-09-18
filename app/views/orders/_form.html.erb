@@ -22,19 +22,27 @@
   </div>
   <div class="form-group">
     <div class="col-lg-10">
-      <%= f.select :location, ['', 'Alhambra', 'Bayview', 'Beacon', 'Birchmont',
+      <%= f.file_field :attachment, label: {text:"Attachment | PDF only for security, stay safe out there "}, :class => 'form-control' %>
+      <p><a href="https://www.youtube.com/watch?v=tIS8Wop_7H4">Microsoft Word: Save as PDF</a></p>
+      <p><a href="https://youtu.be/0kADxcMcjAY?t=45s">Pages for Mac: Save as PDF</a></p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-10">
+      <%= f.select :location, ['Alhambra', 'Bayview', 'Beacon', 'Birchmont',
          'Bookstore', 'Brindle', 'Brooks', 'Callahan (upper)', 'Callahan (lower)',
          'Einstein Bros. Bagels', 'Endicott', 'Essex', 'Farm House', 'Frates' 'Gloucester',
          'Hale', 'Hamilton', 'Hawthorne', 'Kennedy', 'Library', 'LSB (put room # in detials)', 'Manchester',
          'Marblehead', 'Post Center', 'Standish', 'Reynolds', 'Rockport', 'Rogers',
          'Stoneridge', 'Lodge', 'Tower', 'Trexler', 'VPAC (put room # in details)', 'Wenham', 'Williston',
-         'Winthrop', 'Woodside'],label: { text: "Location | Where would you like the paper delivered? " },  :class => 'form-control'%>
+         'Winthrop', 'Woodside'],label: { text: "Location | Where would you like the paper delivered? " }, :prompt => ["Select One"],  :class => 'form-control'%>
     </div>
   </div>
   <div class="form-group">
     <div class="col-lg-10">
-      <%= f.select :delivery_time, ['', 'Express (ASAP)', '9:00-10:00 AM', '2:00-3:00 PM', '11:00 PM-12:00 AM'],
-      label: { text: "Delivery Time | Orders submitted after 11PM can not be delivered during 8-10... yet " }, :class => 'form-control'%>
+      <%= f.select :delivery_time, ['Express', 'Overnight (before 7AM)', '7:00-8:00 PM', '10:00-11:00 PM'],
+      label: { text: "Delivery Time | Orders submitted after 11PM can not be delivered during 8-10... yet " }, :prompt => ["Select One"], :class => 'form-control'%>
     </div>
   </div>
   <div class="form-group">
@@ -44,11 +52,11 @@
   </div>
   <div class="form-group">
     <div class="col-lg-10">
-      <%= f.file_field :attachment, label: {text:"Attachment | PDF only for security, stay safe out there "}, :class => 'form-control' %>
+      <h1 id="price">$0</h1>
+      <h4 id="price">&nbsp&nbsp&nbsp+ $.05 / page</h4>
+      <br><br>
     </div>
   </div>
-  <p><a href="https://www.youtube.com/watch?v=tIS8Wop_7H4">Microsoft Word: Save as PDF</a></p>
-  <p><a href="https://youtu.be/0kADxcMcjAY?t=45s">Pages for Mac: Save as PDF</a></p>
   <div class="form-group">
     <div class="col-lg col-lg-10">
       <%= f.submit nil, :class => 'btn btn-success' %>
@@ -56,5 +64,4 @@
                 orders_path, :class => 'btn btn-default' %>
     </div>
   </div>
-
 <% end %>

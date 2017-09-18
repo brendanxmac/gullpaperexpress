@@ -8,18 +8,22 @@
   <dd><%= @order.title %></dd><br>
   <dt><strong><%= model_class.human_attribute_name(:delivery_time) %>:</strong></dt>
   <dd><%= @order.delivery_time %></dd><br>
+  <% if current_user == @order.user || current_user.admin?  %>
+    <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+    <dd><%= @order.location %></dd><br>
+    <dt><strong><%= model_class.human_attribute_name(:details) %>:</strong></dt>
+    <dd><%= @order.details %></dd><br>
+    <dt><strong><%= model_class.human_attribute_name(:page_count) %>:</strong></dt>
+    <dd><%= @order.page_count %></dd><br>
+    <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+    <dd>$<%= '%.2f' % @order.price %></dd><br>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:attachment) %>:</strong></dt>
   <dd>Recieved</dd><br>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @order.status %></dd><br>
   <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
   <dd><%= time_ago_in_words(@order.created_at)%> ago</dd><br>
-  <% if current_user == @order.user || current_user.admin?  %>
-    <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-    <dd><%= @order.location %></dd><br>
-    <dt><strong><%= model_class.human_attribute_name(:details) %>:</strong></dt>
-    <dd><%= @order.details %></dd><br>
-  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
