@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20170918011932) do
     t.string   "attachment"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.float    "price"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.float    "price",         default: 0.0
     t.integer  "page_count",    default: 0
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
