@@ -78,20 +78,35 @@ a:hover, a:focus {
 
 .jumbotron {
   text-align: center;
-  background-image: asset-url('vpac.JPG');
+  background-image: asset-url('campus.jpg');
   background-size: cover;
   color: #FFF;
   font-family: 'Exo' !important;
   font-stretch: expanded;
   padding-top: 25px;
   padding-bottom: 25px;
-  text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
 
   .lead {
     font-family: 'Helvetica Neue';
     font-size: 28px !important;
 
   }
+}
+
+.home-image-left {
+  background-image: asset-url('home-image-left.png');
+  background-size: cover;
+}
+
+
+.home-image-middle {
+  background-image: asset-url('home-image-middle.png');
+  background-size: cover;
+}
+
+.home-image-right {
+  background-image: asset-url('home-image-right.png');
+  background-size: cover;
 }
 
 #index-jumbo {
@@ -121,22 +136,29 @@ a:hover, a:focus {
   padding-left: 0;
 }
 
+.navbar-default{
+  background-color: #232323;
+}
+
 #logo {
   color: #FFF;
   font-family: "Didact Gothic" !important;
+  font-size: 160%;
+  margin-top: 4px;
 }
 
 #logo:hover {
-  color: #229e6e;
+  color: #58b957;
 }
 
 #nav-link {
   color: #FFF;
   font-family: "Didact Gothic" !important;
+  margin-top: 6px;
 }
 
 #nav-link:hover {
-  color: #229e6e;
+  color: #58b957;
 }
 
 .no-padding {
@@ -152,11 +174,15 @@ a:hover, a:focus {
   font-family: "Exo" !important;
 }
 
-#signup-border-green{
-  border-radius: 25px;
-  border: 2px solid #58b957;
+#signup-image-border{
+  border-radius: 5px;
+  border: 1px solid #B6B6B6;
 }
 
+#signup-border{
+  border-radius: 30px;
+  border: 1px solid #B6B6B6;
+}
 
 #signup-border-blue{
   border-radius: 25px;
@@ -169,25 +195,25 @@ a:hover, a:focus {
 
 #about-border{
   border-radius: 35px;
-  border: 2px solid #3e8acc;
+  border: 2px solid #00C284;
 }
 
 #terms-border {
   border-radius: 35px;
-  border: 2px solid #ff8533;
+  border: 2px solid #00C284;
 }
 
 #contact-border {
   border-radius: 35px;
-  border: 2px solid #3e8acc;
+  border: 2px solid #00C284;
 }
 
 .pending{
-  color: #000;
+  color: #E10000;
 }
 
 .out {
-  color: #F05B0C;
+  color: #FFA913;
 }
 
 .delivered {
@@ -195,7 +221,8 @@ a:hover, a:focus {
 }
 
 .navbar-left {
-  margin: 11px;
+  margin-right: 41px;
+  margin-top: 10px;
 }
 
 * {

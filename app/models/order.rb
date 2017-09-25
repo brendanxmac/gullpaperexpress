@@ -7,6 +7,6 @@ class Order < ApplicationRecord
   validates :delivery_time, presence: true
   validates :attachment, presence: true
   validates :details, length: { maximum: 100}
-  validates :page_count, presence: true
+  # validates :page_count, presence: true
 
 end

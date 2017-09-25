@@ -14,6 +14,9 @@ $(function(){
     else if (delivery_slot == "10:00-11:00 PM") {
       base_price = base_price + 0.50;
     }
+    else {
+      base_price = 0.0;
+    }
     $("#price").text("$" + base_price);
     console.log(base_price);
   });

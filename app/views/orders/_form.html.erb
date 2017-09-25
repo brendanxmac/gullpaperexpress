@@ -31,18 +31,17 @@
   <div class="form-group">
     <div class="col-lg-10">
       <%= f.select :location, ['Alhambra', 'Bayview', 'Beacon', 'Birchmont',
-         'Bookstore', 'Brindle', 'Brooks', 'Callahan (upper)', 'Callahan (lower)',
-         'Einstein Bros. Bagels', 'Endicott', 'Essex', 'Farm House', 'Frates' 'Gloucester',
-         'Hale', 'Hamilton', 'Hawthorne', 'Kennedy', 'Library', 'LSB (put room # in detials)', 'Manchester',
-         'Marblehead', 'Post Center', 'Standish', 'Reynolds', 'Rockport', 'Rogers',
-         'Stoneridge', 'Lodge', 'Tower', 'Trexler', 'VPAC (put room # in details)', 'Wenham', 'Williston',
+         'Bookstore', 'Brindle', 'Brooks', 'Endicott', 'Essex', 'Farm House',
+         'Frates', 'Gloucester', 'Hale', 'Hamilton', 'Hawthorne', 'Kennedy', 'LSB',
+         'Manchester', 'Marblehead', 'Post Center', 'Standish', 'Reynolds', 'Rockport',
+         'Rogers', 'Stoneridge', 'Tower', 'Trexler', 'VPAC', 'Wenham', 'Williston',
          'Winthrop', 'Woodside'],label: { text: "Location | Where would you like the paper delivered? " }, :prompt => ["Select One"],  :class => 'form-control'%>
     </div>
   </div>
   <div class="form-group">
     <div class="col-lg-10">
       <%= f.select :delivery_time, ['Express', 'Overnight (before 7AM)', '7:00-8:00 PM', '10:00-11:00 PM'],
-      label: { text: "Delivery Time | Orders submitted after 11PM can not be delivered during 8-10... yet " }, :class => 'form-control'%>
+      label: { text: "Delivery Time | Orders submitted after 11PM can not be delivered during 8-10... yet " }, :prompt => ["Select One"], :class => 'form-control'%>
     </div>
   </div>
   <div class="form-group">
@@ -52,8 +51,9 @@
   </div>
   <div class="form-group">
     <div class="col-lg-10">
-      <h1 id="price">$0</h1>
-      <h4 id="price">&nbsp&nbsp&nbsp+ $.05 / page</h4>
+      <h1 id="price">$</h1><br>
+      <h5 id="price">Send Via Venmo to @gullpaperexpress</h5><br>
+      <h5 id="price">Once Payment is Recieved Your Order will be Processed</h5>
       <br><br>
     </div>
   </div>

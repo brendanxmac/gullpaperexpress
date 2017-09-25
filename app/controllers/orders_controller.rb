@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.paginate(page: params[:page], per_page:10)
+    @orders = Order.paginate(page: params[:page], per_page:11)
   end
 
   # GET /orders/1
@@ -29,26 +29,31 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user = current_user
-    @order.status = "Pending"
+    @order.status = "Waiting for Venmo Payment"
     if @order.delivery_time == "Express"
       @order.price = 4.00
     elsif @order.delivery_time == "Overnight (before 7AM)"
       @order.price = 3.00
     elsif @order.delivery_time == "7:00-8:00PM"
       @order.price = 2.00
-    else
+    elsif  @order.delivery_time == "10:00-11:00PM"
       @order.price = 2.50
     end
 
-    attachment = @order.attachment
-    PDF::Reader.open("#{Rails.root}/public"+attachment.to_s) do |reader|
-      # puts reader.page_count
-      pages = reader.page_count.to_int
-      @order.page_count = pages
-      page_price = pages * (0.05)
-      @order.price += page_price
-      # puts @order.price
+    if @order.delivery_time == "Please select"
+      @order.rollback
     end
+
+    # attachment = @order.attachment
+    # PDF::Reader.open("#{Rails.root}/public"+attachment.to_s) do |reader|
+    #   # puts reader.page_count
+    #   pages = reader.page_count.to_int
+    #   @order.page_count = pages
+    #   page_price = pages * (0.05)
+    #   @order.price += page_price
+    #   # puts @order.price
+    # end
+
 
     respond_to do |format|
       if @order.save
@@ -74,11 +79,14 @@ class OrdersController < ApplicationController
   end
 
   def delivered
-    order = Order.find(params[:id])
-    order.status = "Delivered"
+    @order = Order.find(params[:id])
+    @order.status = "Delivered"
+    userID = @order.user_id
+    user = User.find(userID)
     if @order.save
       redirect_to orders_url, notice: 'Order was successfully delivered.'
     end
+    File.delete("#{Rails.root}/public"+@order.attachment.to_s)
   end
 
   # PATCH/PUT /orders/1
