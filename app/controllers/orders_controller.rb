@@ -1,4 +1,5 @@
 require 'pdf-reader'
+require 'fileutils'
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -86,7 +87,12 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to orders_url, notice: 'Order was successfully delivered.'
     end
+    puts @order.attachment.to_s
     File.delete("#{Rails.root}/public"+@order.attachment.to_s)
+    puts @order.attachment.to_s
+    FileUtils.rm_rf("#{Rails.root}/public/uploads/order/attachment/"+@order.id.to_s)
+    puts @order.attachment.to_s
+
   end
 
   # PATCH/PUT /orders/1
