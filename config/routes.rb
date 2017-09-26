@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :orders do
     member do
-      get :out_for_delivery, to: 'orders#index'
-      get :delivered, to: 'orders#index'
+      get :out_for_delivery, to: 'orders#out_for_delivery'
+      get :delivered, to: 'orders#delivered'
     end
   end
   devise_for :users, :controllers => {:registrations => "user/registrations"}
