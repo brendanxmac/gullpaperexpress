@@ -5,6 +5,7 @@
   </head>
   <body>
     <h2>Gull Paper Express Team, another order has been successfully submitted!</h2>
-    <p>Check email, print that thing, move your feet</p>
+    <h3><%= @user.first_name %>, <%= @user.last_name %> requested a <%= @order.delivery_time %> delivery </h3>
+    <h3>Check now for a $<%= @order.price %> payemnt from @<%= @user.venmo_name %> </h3>
   </body>
 </html>

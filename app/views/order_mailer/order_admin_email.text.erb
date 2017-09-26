@@ -1,4 +1,4 @@
 Gull Paper Express Team, another order has been successfully submitted!
 ===============================================
-
-Check email, print that thing, move your feet
+<%= @user.first_name %>, <%= @user.last_name %> requested a <%= @order.delivery_time %> delivery
+Check now for a $<%= @order.price %> payemnt from @<%= @user.venmo_name %>

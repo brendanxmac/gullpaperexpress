@@ -4,7 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h2><%= @user.first_name %>, your order has been successfully submitted!</h2>
-    <p>You paper will be delivered shortly, have a great day!</p>
+    <h2><%= @user.first_name %>, your order >>> <%= @order.title %> <<< has been successfully submitted!</h2>
+    <h3>Sign up for Venmo or open the app and send your total $<%= @order.price %> to @gullpaperexpress</h3>
+    <p>You will get an update when payment is recieved and your paper will be delivered as you requested, have a great day!</p>
   </body>
 </html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2><%= @user.first_name %>, your payment for >>> <%= @order.title %> <<< has been recieved!</h2>
+    <h2>Order ID: <%= @order.id %> </h2>
+    <h3>$<%= @order.price %> sent to @gullpaperexpress</h3>
+    <p>Your paper is being printed and stapled. It will be delivered as you requested, thank you for your order</p>
+  </body>
+</html>

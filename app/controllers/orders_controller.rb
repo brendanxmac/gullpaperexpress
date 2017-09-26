@@ -53,8 +53,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        OrderMailer.order_email(@order.user).deliver_now
-        OrderMailer.order_admin_email(@order.user, @order.attachment).deliver_now
+        OrderMailer.order_email(@order, @order.user).deliver_now
+        OrderMailer.order_admin_email(@order, @order.user).deliver_now
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -70,7 +70,9 @@ class OrdersController < ApplicationController
     userID = @order.user_id
     user = User.find(userID)
     if @order.save
-      redirect_to orders_url, notice: 'Order is out for delivery.'
+      OrderMailer.payment_recieved_admin_email(@order, @order.user).deliver_now
+      OrderMailer.payment_recieved_user_email(@order, @order.user).deliver_now
+      redirect_to orders_url, notice: 'Order is out for delivery, Payment was recieved'
     end
   end
 
@@ -80,6 +82,8 @@ class OrdersController < ApplicationController
     userID = @order.user_id
     user = User.find(userID)
     if @order.save
+      OrderMailer.order_delivered_admin_email(@order, @order.user).deliver_now
+      OrderMailer.order_delivered_user_email(@order, @order.user).deliver_now
       redirect_to orders_url, notice: 'Order was successfully delivered.'
     end
     puts @order.attachment.to_s
