@@ -28,7 +28,7 @@ class OrderMailer < ApplicationMailer
     @user = user
     @url = 'https://gullpaperexpress.herokuapp.com'
     @order = order
-    mail(to: @user.email, subject: 'Payment Recieved from User')
+    mail(to: 'gullpaperexpress@gmail.com', subject: 'Payment Recieved from User')
   end
 
   def order_delivered_user_email(order, user)
@@ -42,7 +42,7 @@ class OrderMailer < ApplicationMailer
     @user = user
     @url = 'https://gullpaperexpress.herokuapp.com'
     @order = order
-    mail(to: @user.email, subject: 'Order was successfully delivered')
+    mail(to: 'gullpaperexpress@gmail.com', subject: 'Order was successfully delivered')
   end
 
 
