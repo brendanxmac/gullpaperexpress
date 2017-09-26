@@ -11,7 +11,7 @@ class OrderMailer < ApplicationMailer
     @user = user
     @url = 'https://gullpaperexpress.herokuapp.com'
     attachments['order-attachment'] = { content: File.read("#{Rails.root}/public"+attachment.to_s), mime_type: "image/pdf"}
-    mail(to: @user.email, subject: 'New order submitted')
+    mail(to: 'gullpaperexpress@gmail.com', subject: 'New order submitted')
   end
 
 end
