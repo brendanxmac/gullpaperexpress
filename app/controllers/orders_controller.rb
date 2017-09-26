@@ -41,10 +41,6 @@ class OrdersController < ApplicationController
       @order.price = 2.50
     end
 
-    if @order.delivery_time == "Please select"
-      @order.rollback
-    end
-
     # attachment = @order.attachment
     # PDF::Reader.open("#{Rails.root}/public"+attachment.to_s) do |reader|
     #   # puts reader.page_count
@@ -54,7 +50,6 @@ class OrdersController < ApplicationController
     #   @order.price += page_price
     #   # puts @order.price
     # end
-
 
     respond_to do |format|
       if @order.save
