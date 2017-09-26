@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default from: 'Gull Paper Express'
+  default from: 'gullpaperexpress@gmail.com'
 
   def order_email(user)
     @user = user
